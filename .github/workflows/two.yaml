@@ -1,7 +1,7 @@
 name: jobtwo
 on:
   workflow_run:
-    workflows: [jobone]
+    workflows: [jobone, job_one, one.yaml]
     types:
       - completed
 
