@@ -7,5 +7,5 @@ on:
 jobs:
   runs-on: ubuntu-latest
   steps:
-      run: |
-        echo job TWO done
+    run: |
+      echo job TWO done
