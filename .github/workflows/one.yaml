@@ -1,0 +1,15 @@
+name: "1st job"
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - ready_for_review
+
+jobs:
+  job_one:
+    steps:
+      - name: job number one
+        run: |
+          echo job ONE done

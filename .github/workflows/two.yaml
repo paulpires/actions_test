@@ -1,0 +1,9 @@
+name: "2nd job"
+
+jobs:
+  job_two:
+    needs: job_one
+    steps:
+      - name: job number two
+        run: |
+          echo job TWO done
