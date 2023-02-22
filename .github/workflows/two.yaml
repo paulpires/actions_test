@@ -1,9 +1,43 @@
-name: "2nd job"
+name: jobtwo
+on:
+  pull_request:
+    types: [ closed ]
+    branches: [ main ]
+
+# on:
+  # workflow_run:
+  #   workflows: [jobone, job_one, one.yaml]
+  #   types:
+  #     - completed
 
 jobs:
   job_two:
-    needs: job_one
+    name: job_two
+    runs-on: ubuntu-latest
     steps:
-      - name: job number two
-        run: |
-          echo job TWO done
+      - run: echo 'done running two'
+
+# jobs:
+#   on-success:
+#     runs-on: ubuntu-latest
+#     if: ${{ github.event.workflow_run.conclusion == 'success' }}
+#     steps:
+#       - run: echo 'The triggering workflow passed'
+#   on-failure:
+#     runs-on: ubuntu-latest
+#     if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+#     steps:
+#       - run: echo 'The triggering workflow failed'
+
+# name: jobtwo
+# on:
+#   push
+# jobs:
+#   tests:
+#     uses: ./.github/workflows/one.yaml  # use the callable tests job to run tests
+#   job_two:
+#     name: job_two
+#     needs: [tests]
+#     runs-on: ubuntu-latest
+#     steps:
+#       - run: echo 'done running two'
