@@ -1,6 +1,6 @@
 name: jobone
 on:
-  push
+  workflow_call
 jobs:
   job_one:
     runs-on: ubuntu-latest
