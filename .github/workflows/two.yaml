@@ -3,6 +3,7 @@ name: "2nd job"
 jobs:
   job_two:
     needs: job_one
+    runs-on: ubuntu-latest
     steps:
       - name: job number two
         run: |

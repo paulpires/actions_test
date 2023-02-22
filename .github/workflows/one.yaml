@@ -9,6 +9,7 @@ on:
 
 jobs:
   job_one:
+    runs-on: ubuntu-latest
     steps:
       - name: job number one
         run: |
