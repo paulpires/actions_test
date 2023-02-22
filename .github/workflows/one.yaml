@@ -1,11 +1,7 @@
 name: "1st job"
 
 on:
-  pull_request:
-    types:
-      - opened
-      - reopened
-      - ready_for_review
+  push
 
 jobs:
   job_one:
