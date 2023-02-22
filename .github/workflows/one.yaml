@@ -5,4 +5,4 @@ jobs:
   job_one:
     runs-on: ubuntu-latest
     steps:
-      - run: echo job ONE done
+      - run: exit 1
