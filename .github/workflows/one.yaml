@@ -1,12 +1,9 @@
-name: "1st job"
-
+name: "Job One"
 on:
   push
-
 jobs:
   job_one:
     runs-on: ubuntu-latest
     steps:
-      - name: job number one
         run: |
           echo job ONE done

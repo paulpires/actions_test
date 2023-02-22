@@ -1,15 +1,11 @@
-name: "2nd job"
-
+name: "Job Two"
 on:
   workflow_run:
     workflows: ["job_one"]
     types:
       - completed
-
 jobs:
-  on-success:
-    runs-on: ubuntu-latest
-    steps:
-      - name: job number two
-        run: |
-          echo job TWO done
+  runs-on: ubuntu-latest
+  steps:
+      run: |
+        echo job TWO done
