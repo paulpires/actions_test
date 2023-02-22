@@ -2,7 +2,7 @@ name: "2nd job"
 
 on:
   workflow_run:
-    workflows: ["1st job"]
+    workflows: ["one"]
     types:
       - completed
 
