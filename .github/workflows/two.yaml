@@ -1,16 +1,21 @@
 name: jobtwo
 on:
-  workflow_run:
-    workflows: [jobone, job_one, one.yaml]
-    types:
-      - completed
+  pull_request:
+    types: [ closed ]
+    branches: [ main ]
+
+# on:
+  # workflow_run:
+  #   workflows: [jobone, job_one, one.yaml]
+  #   types:
+  #     - completed
 
 jobs:
   job_two:
     name: job_two
     runs-on: ubuntu-latest
     steps:
-      - run: echo 'done running two'  
+      - run: echo 'done running two'
 
 # jobs:
 #   on-success:

@@ -2,10 +2,20 @@ name: jobone
 on:
   push
 jobs:
-  job_one:
+  automerge:
     runs-on: ubuntu-latest
     steps:
-      - run: echo job ONE done
+      - name: automerge
+        uses: "pascalgn/automerge-action@v0.12.0"
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          MERGE_LABELS: ""
+          MERGE_REMOVE_LABELS: ""
+          MERGE_METHOD: "squash"
+          MERGE_COMMIT_MESSAGE: "automatic"
+          MERGE_FORKS: "false"
+          MERGE_RETRIES: "6"
+          MERGE_RETRY_SLEEP: "10000"
 
 # name: jobone
 # on:
