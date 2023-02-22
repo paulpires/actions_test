@@ -2,6 +2,7 @@ name: "Job One"
 on:
   push
 jobs:
-  runs-on: ubuntu-latest
-  steps:
-    - run: echo job ONE done
+  job_one:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo job ONE done
