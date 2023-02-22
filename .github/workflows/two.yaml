@@ -1,5 +1,8 @@
 name: "2nd job"
 
+on:
+  push
+
 jobs:
   job_two:
     needs: job_one
