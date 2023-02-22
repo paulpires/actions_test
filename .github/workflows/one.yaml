@@ -1,8 +1,17 @@
 name: jobone
 on:
-  workflow_call
+  push
 jobs:
   job_one:
     runs-on: ubuntu-latest
     steps:
-      - run: exit 1
+      - run: echo job ONE done
+
+# name: jobone
+# on:
+#   workflow_call
+# jobs:
+#   job_one:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - run: exit 1

@@ -1,30 +1,30 @@
-# name: jobtwo
-# on:
-#   workflow_run:
-#     workflows: ["jobone"]
-#     types:
-#       - completed
-# jobs:
-#   on-success:
-#     runs-on: ubuntu-latest
-#     if: ${{ github.event.workflow_run.conclusion == 'success' }}
-#     steps:
-#       - run: echo 'The triggering workflow passed'
-#   on-failure:
-#     runs-on: ubuntu-latest
-#     if: ${{ github.event.workflow_run.conclusion == 'failure' }}
-#     steps:
-#       - run: echo 'The triggering workflow failed'
-
 name: jobtwo
 on:
-  push
+  workflow_run:
+    workflows: [jobone]
+    types:
+      - completed
 jobs:
-  tests:
-    uses: ./.github/workflows/one.yaml  # use the callable tests job to run tests
-  job_two:
-    name: job_two
-    needs: [tests]
+  on-success:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
-      - run: echo 'done running two'
+      - run: echo 'The triggering workflow passed'
+  on-failure:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+    steps:
+      - run: echo 'The triggering workflow failed'
+
+# name: jobtwo
+# on:
+#   push
+# jobs:
+#   tests:
+#     uses: ./.github/workflows/one.yaml  # use the callable tests job to run tests
+#   job_two:
+#     name: job_two
+#     needs: [tests]
+#     runs-on: ubuntu-latest
+#     steps:
+#       - run: echo 'done running two'
