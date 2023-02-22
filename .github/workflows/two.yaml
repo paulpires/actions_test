@@ -21,7 +21,7 @@ on:
   push
 jobs:
   tests:
-    uses: ./.github/workflows/one.yml  # use the callable tests job to run tests
+    uses: ./.github/workflows/one.yaml  # use the callable tests job to run tests
   job_two:
     name: job_two
     needs: [tests]
