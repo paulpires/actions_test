@@ -1,5 +1,6 @@
 name: jobtwo
 on:
+<<<<<<< Updated upstream
   workflow_run:
     workflows: [jobone]
     types:
