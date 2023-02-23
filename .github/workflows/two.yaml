@@ -1,12 +1,11 @@
 name: jobtwo
 on:
-<<<<<<< Updated upstream
-  workflow_run:
-    workflows: [jobone]
-    types:
-      - completed
+  # workflow_run:
+  #   workflows: [jobone]
+  #   types:
+  #     - completed
   pull_request:
-    types: [ closed ]
+    types: [ auto_merge_enabled, closed ]
     branches: [ main ]
 
 jobs:
