@@ -1,7 +1,7 @@
 name: jobthree
 on:
   workflow_run:
-    workflows: [jobone, job_one, one.yaml, automerge]
+    workflows: [jobone]
     types:
       - completed
 
