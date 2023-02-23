@@ -4,6 +4,9 @@ on:
     workflows: [jobone]
     types:
       - completed
+  pull_request:
+    types: [ closed ]
+    branches: [ main ]
 
 jobs:
   on-success:
