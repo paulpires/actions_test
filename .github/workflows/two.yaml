@@ -7,7 +7,7 @@ on:
   workflow_run:
     workflows: ["Automatic merge"]
     types: [ completed ]
-    branches: [ main ]
+    # branches: [ main ]
 
 jobs:
   phrase-push:
