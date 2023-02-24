@@ -1,4 +1,4 @@
-name: jobone
+name: "Automatic merge"
 on:
   pull_request:
     types:
