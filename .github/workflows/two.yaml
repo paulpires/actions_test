@@ -10,17 +10,22 @@ on:
       - completed
 
 jobs:
-  on-success:
+  one:
     runs-on: ubuntu-latest
     # if: ${{ github.event.workflow_run.conclusion == 'success' }}
-    if: (github.event == 'workflow_run') || (github.event == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true)
+    if: github.event.action == 'closed' && github.event.pull_request.merged == true
     steps:
-      - run: echo 'The triggering workflow passed'
-  # on-failure:
-  #   runs-on: ubuntu-latest
-  #   if: ${{ github.event.workflow_run.conclusion == 'failure' }}
-  #   steps:
-  #     - run: echo 'The triggering workflow failed'
+      - run: echo one
 
+  two:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.action == 'closed' && github.event.pull_request.merged == true }}
+    steps:
+      - run: echo two
 
-# some change here
+  three:
+    runs-on: ubuntu-latest
+    if: ${{ github.event == 'pull_request' }}
+    steps:
+      - run: echo three
+
