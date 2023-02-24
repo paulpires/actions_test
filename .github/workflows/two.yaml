@@ -25,7 +25,7 @@ jobs:
 
   three:
     runs-on: ubuntu-latest
-    if: ${{ github.event == 'pull_request' }}
+    if: ${{ github.event_name == 'pull_request' }}
     steps:
       - run: echo three
 
