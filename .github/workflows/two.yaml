@@ -14,3 +14,5 @@ jobs:
     if: (github.event_name == 'workflow_run') || (github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true)
     steps:
       - run: echo phrase-push
+
+# testing automatic merge
