@@ -29,3 +29,8 @@ jobs:
     steps:
       - run: echo three
 
+  four:
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'workflow_run' || (github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true) }}
+    steps:
+      - run: echo four
