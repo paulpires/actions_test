@@ -1,31 +1,16 @@
-name: "Automatic merge"
+name: "expressions test"
 on:
+  workflow_dispatch:
   pull_request:
-    types:
-      - labeled
-      - unlabeled
-      - sync
+    types: [opened, synchronize, reopened]
+
 jobs:
-  automerge:
+  testing-job:
     runs-on: ubuntu-latest
     steps:
-      - name: automerge
-        uses: "pascalgn/automerge-action@v0.12.0"
-        env:
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-          MERGE_LABELS: "Merge,!Blocked,!Don't merge,!Stacked PR"
-          MERGE_REMOVE_LABELS: "Merge"
-          MERGE_METHOD: "squash"
-          MERGE_COMMIT_MESSAGE: "automatic"
-          MERGE_FORKS: "false"
-          MERGE_RETRIES: "6"
-          MERGE_RETRY_SLEEP: "10000"
-
-# name: jobone
-# on:
-#   workflow_call
-# jobs:
-#   job_one:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - run: exit 1
+      - name: expressions
+        run: |
+          echo "This is a test job"
+          echo "The current PR title is ${{ github.event.pull_request.title }}"
+          echo "The current PR title toJSON ${{ toJson(github.event.pull_request.title) }}"
+          echo "The current PR title fromJSON ${{ fromJson(github.event.pull_request.title) }}"
