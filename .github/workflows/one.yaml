@@ -13,5 +13,6 @@ jobs:
         run: |
           echo "This is a test job"
           echo "The current PR title is ${{ github.event.pull_request.title }}"
-          echo "{"value": "${{ toJson(github.event.pull_request.title) }}"}"
+          foo="{"value": "${{ toJson(github.event.pull_request.title) }}"}"
+          echo $foo
 
