@@ -9,8 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: expressions
+        shell: bash
         run: |
           echo "This is a test job"
           echo "The current PR title is ${{ github.event.pull_request.title }}"
           echo "The current PR title toJSON ${{ toJson(github.event.pull_request.title) }}"
-          echo "The current PR title fromJSON ${{ fromJson(github.event.pull_request.title) }}"
